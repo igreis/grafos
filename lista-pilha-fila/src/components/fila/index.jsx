@@ -1,5 +1,5 @@
 import { React, useState } from "react"
-import './styled.css'
+import '../style/styledGlobal.css'
 
 export const Fila = () => {
 
@@ -20,12 +20,24 @@ export const Fila = () => {
         setLista(lista2)
     }
 
+    const handleSort = () => {
+        
+    }
+
+    const handleDelete = () => {
+        const listDelete = [...lista]
+        listDelete.shift();
+        setLista(listDelete);
+    }
+
     return (
         <div className="container">
-        <h1>LISTA</h1>
+        <h1>Fila</h1>
         <input value = {string} onChange = { (e) => setString(e.target.value) } type="text" />
         <input value = {index} onChange = { (e) => setIndex(e.target.value) } type="number" />
-        <button onClick={handleClick}>butao</button>
+        <button onClick={handleClick}>Adicionar</button>
+        <button onClick={handleSort}>Ordenar</button>
+        <button onClick={handleDelete}>Excluir</button>
         <h2 className="list">{lista.join(', ')}</h2>
         </div>
     )
